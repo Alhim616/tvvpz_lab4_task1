@@ -26,5 +26,12 @@ jobs:
       run: python -m unittest discover -s tests
 
     - name: Run Linter
-      run: |
-        flake8 . --max-line-length=120
+      run: flake8 . --max-line-length=120
+
+    - name: Trigger UI Tests
+      if: success()
+      uses: peter-evans/repository-dispatch@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        repository: Alhim616/tvvpz_lab4_task2
+        event-type: run-ui-tests
