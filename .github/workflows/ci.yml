@@ -32,6 +32,6 @@ jobs:
       if: success()
       uses: peter-evans/repository-dispatch@v2
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.UI_REPO_PAT }}
         repository: Alhim616/tvvpz_lab4_task2
         event-type: run-ui-tests
